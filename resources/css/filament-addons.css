@@ -1,0 +1,18 @@
+@tailwind utilities;
+
+/* Date Input */
+.dark input[type="date"],
+.dark input[type="datetime-local"] {
+    color-scheme: dark;
+}
+
+/* Fixed Sidebar */
+.fixed-sidebar > .grid {
+    grid-template-columns: repeat(1fr);
+}
+
+@screen lg {
+    .fixed-sidebar > .grid {
+        grid-template-columns: minmax(50%, auto) minmax(150px, 300px);
+    }
+}
