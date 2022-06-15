@@ -2,6 +2,12 @@
 
 A set of components, fields and layouts to extend Filament Admin.
 
+## Installation
+
+```bash
+composer require awcodes/filament-addons
+```
+
 ## Admin
 
 ### **Fixed Sidebar Layout**
