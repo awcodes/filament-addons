@@ -4,8 +4,6 @@ A set of components, fields and layouts to extend Filament Admin.
 
 ## Admin
 
----
-
 ### **Fixed Sidebar Layout**
 
 Just return it directly from your form function in your model resource.
@@ -108,8 +106,6 @@ VideoEmbed::make(string $fieldname)
 ```
 
 ## Tables
-
----
 
 ### **Title With Status Indicator**
 
