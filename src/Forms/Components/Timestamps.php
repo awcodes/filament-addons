@@ -14,12 +14,10 @@ class Timestamps
             ->schema([
                 Placeholder::make('created_at')
                     ->label('Created at')
-                    ->content(fn (?Model $record): string => $record ? $record->created_at->diffForHumans() : '-')
-                    ->columns(1),
+                    ->content(fn (?Model $record): string => $record ? $record->created_at->diffForHumans() : '-'),
                 Placeholder::make('updated_at')
                     ->label('Modified at')
-                    ->content(fn (?Model $record): string => $record ? $record->updated_at->diffForHumans() : '-')
-                    ->columns(1),
-            ])->columnSpan('full')->columns(2);
+                    ->content(fn (?Model $record): string => $record ? $record->updated_at->diffForHumans() : '-'),
+            ])->columnSpan('full')->columns(['default' => 2]);
     }
 }
