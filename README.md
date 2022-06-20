@@ -95,6 +95,14 @@ use FilamentAddons\Forms\Components\Separator;
 Separator::make()
 ```
 
+### **Heading**
+
+```php
+use FilamentAddons\Forms\Components\Heading;
+
+Heading::make('whatevs')->level('h3')->content('This is a test')
+```
+
 ### **Video Embed**
 
 ![video-embed](images/video-embed.png)
