@@ -119,6 +119,20 @@ VideoEmbed::make(string $fieldname)
     ->rows()
 ```
 
+### **oEmbed**
+
+![video-embed](images/oembed.png)
+
+Allows oembedding a video with preview.
+
+Onlys supports YouTube and Vimeo at the moment.
+
+```php
+use FilamentAddons\Forms\Components\OEmbed;
+
+OEmbed::make(string $fieldname)
+```
+
 ## Tables
 
 ### **Title With Status Indicator**
