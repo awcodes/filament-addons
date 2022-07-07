@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class PublicViewAction extends Action
 {
-    public static function make(string $name = 'viewPublicUrl'): static
+    public static function getDefaultName(): ?string
     {
-        return parent::make($name);
+        return 'viewPublicUrl';
     }
 
     protected function setUp(): void
