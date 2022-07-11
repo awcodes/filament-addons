@@ -1,13 +1,16 @@
 @php
     $state = $getState();
-    $styles = $state['responsive'] ? "aspect-ratio: {$state['width']} / {$state['height']}; width: 100%; height: auto;" : null;
-    $params = [
-        'autoplay' => $state['autoplay'] ? 1 : 0,
-        'loop' => $state['loop'] ? 1 : 0,
-        'title' => $state['show_title'] ? 1 : 0,
-        'byline' => $state['byline'] ? 1 : 0,
-        'portrait' => $state['portrait'] ? 1 : 0,
-    ];
+
+    if ($state) {
+        $styles = $state['responsive'] ? "aspect-ratio: {$state['width']} / {$state['height']}; width: 100%; height: auto;" : null;
+        $params = [
+            'autoplay' => $state['autoplay'] ? 1 : 0,
+            'loop' => $state['loop'] ? 1 : 0,
+            'title' => $state['show_title'] ? 1 : 0,
+            'byline' => $state['byline'] ? 1 : 0,
+            'portrait' => $state['portrait'] ? 1 : 0,
+        ];
+    }
 @endphp
 
 <x-forms::field-wrapper
@@ -21,7 +24,7 @@
     :state-path="$getStatePath()"
 >
     <div x-data="{ state: $wire.entangle('{{ $getStatePath() }}') }">
-        @if($state['embed_url'])
+        @if($state && $state['embed_url'])
         <iframe
             src="{{ $state['embed_url'] }}?{{ http_build_query($params) }}"
             width="{{ $state['responsive'] ? $state['width'] : ($state['width'] ?: '640') }}"
