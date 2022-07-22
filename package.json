@@ -2,8 +2,8 @@
   "private": true,
   "description": "A set of components / fields to extend Filament Admin.",
   "scripts": {
-    "dev": "npx tailwindcss -i ./resources/css/plugin.css -o ./resources/dist/filament-addons.css --watch",
-    "build": "npx tailwindcss -i ./resources/css/plugin.css -o ./resources/dist/filament-addons.css --minify"
+    "dev": "npx tailwindcss -i ./resources/css/plugin.css -o ./resources/dist/filament-addons.css --postcss --watch",
+    "build": "npx tailwindcss -i ./resources/css/plugin.css -o ./resources/dist/filament-addons.css --postcss --minify"
   },
   "author": "Adam Weston",
   "license": "MIT",
