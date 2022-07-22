@@ -8,6 +8,17 @@ A set of components, fields and layouts to extend Filament Admin.
 composer require awcodes/filament-addons
 ```
 
+## Themeing
+
+If you are using a custom theme for Filament you will need to add this plugin's view to your Tailwind CSS config.
+
+```js
+content: [
+    ...
+    "./vendor/awcodes/filament-addons/**/*.blade.php",
+],
+```
+
 ## Admin
 
 ### **Fixed Sidebar Layout**
