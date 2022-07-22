@@ -10,7 +10,7 @@ composer require awcodes/filament-addons
 
 ## Themeing
 
-If you are using a custom theme for Filament you will need to add this plugin's view to your Tailwind CSS config.
+If you are using a custom theme for Filament you will need to add this plugin's views to your Tailwind CSS config.
 
 ```js
 content: [
