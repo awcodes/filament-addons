@@ -5,18 +5,18 @@ namespace FilamentAddons\Forms\Actions;
 use Filament\Pages\Actions\Action;
 use Illuminate\Database\Eloquent\Model;
 
-class PublicViewAction extends Action
+class PreviewAction extends Action
 {
     public static function getDefaultName(): ?string
     {
-        return 'viewPublicUrl';
+        return 'previewPublicUrl';
     }
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->label(__('View'));
+        $this->label(__('Preview'));
 
         $this->color('secondary');
 
