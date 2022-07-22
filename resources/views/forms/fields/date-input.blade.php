@@ -24,7 +24,8 @@
             x-bind:min="minDate"
             x-bind:max="maxDate"
             x-model="state"
-            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
+            step="1"
+            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}"
             {!! ($id = $getId()) ? "id=\"{$id}\"" : null !!}
             @class([
                 'bg-white relative w-full border py-2 pl-3 pr-1 rtl:pl-1 rtl:pr-3 rounded-lg shadow-sm focus-within:border-primary-600 focus-within:ring-1 focus-within:ring-inset focus-within:ring-primary-600 w-full h-full placeholder-gray-400 focus:placeholder-gray-500 focus:ring-0 focus:outline-none',
