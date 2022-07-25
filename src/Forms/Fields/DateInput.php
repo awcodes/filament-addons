@@ -22,9 +22,15 @@ class DateInput extends Field
 
     protected bool | Closure $isWithoutTime = false;
 
+    protected bool | Closure $isWithoutSeconds = false;
+
+    protected string | Closure | null $format = null;
+
     protected DateTime | string | Closure | null $maxDate = null;
 
     protected DateTime | string | Closure | null $minDate = null;
+
+    protected string | Closure | null $timezone = null;
 
     protected function setUp(): void
     {
@@ -35,18 +41,41 @@ class DateInput extends Field
                 return;
             }
 
-            $state = (new Carbon)::parse($state);
+            $state = Carbon::parse($state);
 
             if ($this->hasTime()) {
-                $state = $state->toDateTimeLocalString();
+                // $state = $state->toDateTimeLocalString();
+                $state->setTimezone($component->getTimezone());
             } else {
                 $state = $state->format('Y-m-d');
             }
 
-            $component->state($state);
+            $component->state((string) $state);
         });
 
-        $this->rule('date', true);
+        $this->dehydrateStateUsing(static function (DateInput $component, $state) {
+            if (blank($state)) {
+                return null;
+            }
+
+            if (! $state instanceof CarbonInterface) {
+                $state = Carbon::parse($state);
+            }
+
+            $state->shiftTimezone($component->getTimezone());
+            $state->setTimezone(config('app.timezone'));
+
+            return $state->format($component->getFormat());
+        });
+
+        $this->rule('date', static fn (DateInput $component): bool => !$component->hasTime());
+    }
+
+    public function timezone(string | Closure | null $timezone): static
+    {
+        $this->timezone = $timezone;
+
+        return $this;
     }
 
     public function maxDate(DateTime | string | Closure | null $date): static
@@ -90,6 +119,13 @@ class DateInput extends Field
         return $this;
     }
 
+    public function withoutSeconds(bool | Closure $condition = true): static
+    {
+        $this->isWithoutSeconds = $condition;
+
+        return $this;
+    }
+
     public function getMaxDate(): ?string
     {
         $date = $this->evaluate($this->maxDate);
@@ -115,5 +151,38 @@ class DateInput extends Field
     public function hasTime(): bool
     {
         return !$this->isWithoutTime;
+    }
+
+    public function hasSeconds(): bool
+    {
+        return ! $this->isWithoutSeconds;
+    }
+
+    public function getTimezone(): string
+    {
+        return $this->evaluate($this->timezone) ?? config('app.timezone');
+    }
+
+    public function getFormat(): string
+    {
+        $format = $this->evaluate($this->format);
+
+        if ($format) {
+            return $format;
+        }
+
+        $format = 'Y-m-d';
+
+        if (! $this->hasTime()) {
+            return $format;
+        }
+
+        $format = $format ? "{$format} H:i" : 'H:i';
+
+        if (! $this->hasSeconds()) {
+            return $format;
+        }
+
+        return "{$format}:s";
     }
 }
