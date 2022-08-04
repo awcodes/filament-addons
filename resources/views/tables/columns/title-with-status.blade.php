@@ -16,6 +16,7 @@ $stateColor = match ($getStatusColor()) { 'danger' => \Illuminate\Support\Arr::t
                 'right' => 'justify-end',
                 default => null
             },
+            'whitespace-normal' => $canWrap(),
         ]) }}>
     @if (filled($state))
         <div>
