@@ -8,14 +8,20 @@ A set of components, fields and layouts to extend Filament Admin.
 composer require awcodes/filament-addons
 ```
 
+### (Optional) Publish config file
+
+```bash
+php artisan vendor:publish --tag=filament-addons-config
+```
+
 ## Themeing
 
-If you are using a custom theme for Filament you will need to add this plugin's views to your Tailwind CSS config.
+If you are using a custom theme for Filament you will need to add this plugin's views to your Tailwind CSS config. Once this is done you may disable the plugin's stylesheet in the config file by changing 'load_styles' to false.
 
 ```js
 content: [
     ...
-    "./vendor/awcodes/filament-addons/**/*.blade.php",
+    "./vendor/awcodes/filament-addons/resources/views/**/*.blade.php",
 ],
 ```
 
