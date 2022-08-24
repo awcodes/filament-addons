@@ -3,11 +3,13 @@
   "description": "A set of components / fields to extend Filament Admin.",
   "scripts": {
     "dev": "npx tailwindcss -i ./resources/css/plugin.css -o ./resources/dist/filament-addons.css --postcss --watch",
-    "build": "npx tailwindcss -i ./resources/css/plugin.css -o ./resources/dist/filament-addons.css --postcss --minify"
+    "build": "npx tailwindcss -i ./resources/css/plugin.css -o ./resources/dist/filament-addons.css --postcss --minify && npm run purge",
+    "purge": "filament-purge -i ./resources/dist/filament-addons.css -o ./resources/dist/filament-addons.css"
   },
   "author": "Adam Weston",
   "license": "MIT",
   "devDependencies": {
+    "@awcodes/filament-plugin-purge": "^1.0.1",
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.2"
