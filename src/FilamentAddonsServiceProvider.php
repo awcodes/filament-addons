@@ -4,10 +4,10 @@ namespace FilamentAddons;
 
 use Livewire\Livewire;
 use Filament\Facades\Filament;
-use Filament\PluginServiceProvider;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Spatie\LaravelPackageTools\Package;
 
-class FilamentAddonsServiceProvider extends PluginServiceProvider
+class FilamentAddonsServiceProvider extends PackageServiceProvider
 {
     protected function getStyles(): array
     {
