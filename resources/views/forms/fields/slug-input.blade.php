@@ -1,4 +1,4 @@
-<x-forms::field-wrapper :id="$getId()"
+<x-dynamic-component :id="$getId()"
     :label="$getLabel()"
     :label-sr-only="$isLabelHidden()"
     :helper-text="$getHelperText()"
@@ -63,4 +63,4 @@
             </div>
         </div>
     </div>
-</x-forms::field-wrapper>
+</x-dynamic-component>

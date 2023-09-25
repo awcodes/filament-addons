@@ -1,4 +1,4 @@
-<x-forms::field-wrapper :id="$getId()"
+<x-dynamic-component :id="$getId()"
     :label="$getLabel()"
     :label-sr-only="$isLabelHidden()"
     :helper-text="$getHelperText()"
@@ -48,4 +48,4 @@
         </textarea>
     </div>
     <p class="text-xs">Paste entire embed code into this field.</p>
-</x-forms::field-wrapper>
+</x-dynamic-component>
