@@ -14,6 +14,8 @@
 @endphp
 
 <x-dynamic-component
+    :component="$getFieldWrapperView()" 
+    :field="$field"
     :id="$getId()"
     :label="$getLabel()"
     :label-sr-only="$isLabelHidden()"
