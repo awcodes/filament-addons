@@ -1,6 +1,4 @@
-<x-dynamic-component :id="$getId()"
-    :component="$getFieldWrapperView()" 
-    :field="$field">
+<x-dynamic-component :component="$getFieldWrapperView()" :field="$field">
         @if ($getState() != '')
             <div @class([
                 'p-4 relative',
