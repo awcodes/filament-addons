@@ -15,16 +15,7 @@
 
 <x-dynamic-component
     :component="$getFieldWrapperView()" 
-    :field="$field"
-    :id="$getId()"
-    :label="$getLabel()"
-    :label-sr-only="$isLabelHidden()"
-    :helper-text="$getHelperText()"
-    :hint="$getHint()"
-    :hint-icon="$getHintIcon()"
-    :required="$isRequired()"
-    :state-path="$getStatePath()"
->
+    :field="$field">
     <div x-data="{ state: $wire.entangle('{{ $getStatePath() }}') }">
         @if($state && $state['embed_url'])
         <iframe

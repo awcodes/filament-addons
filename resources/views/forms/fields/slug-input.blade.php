@@ -1,14 +1,6 @@
 <x-dynamic-component :id="$getId()"
     :component="$getFieldWrapperView()" 
-    :field="$field"
-    :label="$getLabel()"
-    :label-sr-only="$isLabelHidden()"
-    :helper-text="$getHelperText()"
-    :hint="$getHint()"
-    :hint-icon="$getHintIcon()"
-    :required="$isRequired()"
-    :state-path="$getStatePath()"
-    class="-mt-3 filament-addons-slug-input-wrapper">
+    :field="$field">
     <div x-data="{
         state: $wire.entangle('{{ $getStatePath() }}'),
         original: '',
