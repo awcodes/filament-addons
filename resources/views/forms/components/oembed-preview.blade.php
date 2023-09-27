@@ -13,16 +13,9 @@
     }
 @endphp
 
-<x-forms::field-wrapper
-    :id="$getId()"
-    :label="$getLabel()"
-    :label-sr-only="$isLabelHidden()"
-    :helper-text="$getHelperText()"
-    :hint="$getHint()"
-    :hint-icon="$getHintIcon()"
-    :required="$isRequired()"
-    :state-path="$getStatePath()"
->
+<x-dynamic-component
+    :component="$getFieldWrapperView()" 
+    :field="$field">
     <div x-data="{ state: $wire.entangle('{{ $getStatePath() }}') }">
         @if($state && $state['embed_url'])
         <iframe
@@ -36,4 +29,4 @@
         ></iframe>
         @endif
     </div>
-</x-forms::field-wrapper>
+</x-dynamic-component>

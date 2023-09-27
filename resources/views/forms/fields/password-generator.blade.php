@@ -1,12 +1,6 @@
-<x-forms::field-wrapper :id="$getId()"
-    :label="$getLabel()"
-    :label-sr-only="$isLabelHidden()"
-    :helper-text="$getHelperText()"
-    :hint="$getHint()"
-    :hint-icon="$getHintIcon()"
-    :required="$isRequired()"
-    :state-path="$getStatePath()"
-    class="filament-addons-slug-input-wrapper">
+<x-dynamic-component :id="$getId()"
+    :component="$getFieldWrapperView()" 
+    :field="$field">
     <div x-data="{
         state: $wire.entangle('{{ $getStatePath() }}'),
         generatePassword: function() {
@@ -38,4 +32,4 @@
             </div>
         </div>
     </div>
-</x-forms::field-wrapper>
+</x-dynamic-component>

@@ -1,12 +1,6 @@
-<x-forms::field-wrapper :id="$getId()"
-    :label="$getLabel()"
-    :label-sr-only="$isLabelHidden()"
-    :helper-text="$getHelperText()"
-    :hint="$getHint()"
-    :hint-icon="$getHintIcon()"
-    :required="$isRequired()"
-    :state-path="$getStatePath()">
-    <div class="filament-addons-forms-video-embed">
+<x-dynamic-component :id="$getId()"
+    :component="$getFieldWrapperView()" 
+    :field="$field">
         @if ($getState() != '')
             <div @class([
                 'p-4 relative',
@@ -48,4 +42,4 @@
         </textarea>
     </div>
     <p class="text-xs">Paste entire embed code into this field.</p>
-</x-forms::field-wrapper>
+</x-dynamic-component>
