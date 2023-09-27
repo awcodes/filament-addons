@@ -13,16 +13,13 @@
     }
 @endphp
 
-<x-dynamic-component
-    :component="$getFieldWrapperView()" 
-    :field="$field">
+<x-dynamic-component :component="$getFieldWrapperView()" :field="$field">
     <div x-data="{ state: $wire.entangle('{{ $getStatePath() }}') }">
         @if($state && $state['embed_url'])
         <iframe
             src="{{ $state['embed_url'] }}?{{ http_build_query($params) }}"
             width="{{ $state['responsive'] ? $state['width'] : ($state['width'] ?: '640') }}"
             height="{{ $state['responsive'] ? $state['height'] : ($state['height'] ?: '480') }}"
-            frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             allowfullscreen
             style="{{ $styles }}"

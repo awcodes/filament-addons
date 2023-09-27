@@ -1,6 +1,4 @@
-<x-dynamic-component :id="$getId()"
-    :component="$getFieldWrapperView()" 
-    :field="$field">
+<x-dynamic-component :component="$getFieldWrapperView()" :field="$field">
     <div x-data="{
         state: $wire.entangle('{{ $getStatePath() }}'),
         original: '',
