@@ -2,7 +2,8 @@
 
 namespace FilamentAddons\Forms\Components;
 
-use Closure;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Illuminate\Support\Str;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Group;
@@ -27,7 +28,7 @@ class OEmbed
                         ->label('URL')
                         ->reactive()
                         ->lazy()
-                        ->afterStateUpdated(function(Closure $set, Closure $get, $state) use ($field) {
+                        ->afterStateUpdated(function (Set $set, Get $get, $state) use ($field) {
                             if ($state) {
                                 $video_url = urlencode($state);
                                 $embed_type = Str::of($state)->contains('vimeo') ? 'vimeo' : 'youtube';
@@ -123,4 +124,3 @@ class OEmbed
         return $outputUrl;
     }
 }
-
